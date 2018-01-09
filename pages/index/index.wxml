@@ -1,0 +1,58 @@
+<!--index.wxml-->
+
+<view class="header">
+    <!-- 顶部地理位置信息 -->
+  <view class="location">
+    <text>您的当前位置：</text>
+    <text>{{address}}</text>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search">
+    <input type="search" placeholder-style="" placeholder="请输入需要搜索的商品"/>
+  </view>
+</view>
+<view class="hideBox"></view>
+
+<view class="clearfix container">
+  <!-- 左侧tab -->
+  <view class="tabs">
+    <view wx:for="{{tabs}}" wx:key="item">
+    <text class="{{activeindex == index ? 'showTitle' : ''}}" data-index="{{index}}" bindtap="tabClick">{{item.title}}</text>
+    </view>
+  </view>
+  <!-- 右侧商品 -->
+   
+  <view class="shop_list">
+    <view class="shop_list_box" wx:for="{{textData}}" wx:key="item">
+        <!-- 商品盒子 -->
+        <view class="clearfix shop">
+          <!-- 商品图片 -->
+          <image src="../img/qqq.png"></image>
+          <!-- 商品信息 -->
+          <view class="info">
+            <text>{{item.text}}</text>
+            <text class="block color_red">¥{{item.price}}</text>
+          </view>
+          <!-- 商品数量 -->
+          <view class="num">
+            <block wx:if="{{item.isShow}}">
+              <text class="reduce" data-index="{{index}}" bindtap="reduceShopNum">-</text>
+              <text class="num_text">{{item.num}}</text>
+            </block>
+            <text class="add"  data-index="{{index}}" bindtap="addShopNum">+</text>
+          </view>
+        </view>
+    </view>
+  </view>
+  <!-- 购物车 -->
+  <view class="car">
+    <view class="car_info">
+      <view class="num">
+        <text>{{carTotalNum}}</text><text>份</text>
+        <view class="color_red price">¥{{carTotalPrice}}</view>
+      </view>
+    </view> 
+    <view class="gopay" bindtap="gopay">下单</view>
+  </view>
+</view>

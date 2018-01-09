@@ -1,0 +1,162 @@
+/**index.wxss**/
+.block{
+  display: block;
+  margin-top: 30rpx;
+}
+.color_red{
+  color: red;
+}
+.showTitle{
+  display: inline-block;
+  width: 100%;
+  color: orange;
+  background-color: #fff;
+  border-left: 6rpx solid orange;
+}
+.color_red{
+  color: red;
+}
+.no-margin{
+  margin: 0;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200rpx;
+  z-index: 999;
+  background-color: orange;
+  padding: 25rpx 0 0 0;
+}
+.hideBox{
+  height: 200rpx;
+}
+
+.location{
+  font-size: 30rpx;
+  text-align: center;
+  margin: 10rpx;
+  color: #846;
+}
+
+.search{
+  width: 80%;
+  font-size: 28rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  text-align: center;
+  border-radius: 100rpx;
+  border: 1rpx solid #fff;
+  background-color: #fff;
+  padding: 10rpx 0;
+}
+
+
+
+
+
+.container{
+  width: 100%;
+  margin-top: 40rpx;
+}
+.container .tabs{
+  position: fixed;
+  left: 0;
+  top: 220rpx;
+  width: 30%;
+  height: 100%;
+  background-color: #F5F3F4;
+  text-align: center;
+}
+.container .tabs view{
+  border-bottom: 1rpx solid #F5F3F4;
+  /* border-left: 6rpx solid orange; */
+}
+.container .tabs text{
+  display: inline-block;
+  padding: 15rpx 0;
+  box-sizing: border-box;
+}
+.container .shop_list{
+  float: right;
+  width: 70%;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+  margin-bottom: 100rpx;
+} 
+.container .shop_list .shop{
+  position: relative;
+  width: 100%;
+  margin-top: 25rpx;
+}
+.container .shop_list .shop_list_box:first-child .shop{
+  margin-top: 0;
+}
+.container .shop_list image{
+  float: left;
+  width: 30%;
+  height: 120rpx;
+}
+.container .shop_list .info{
+  float: left;
+  margin-left: 15rpx;
+}
+.container .shop_list .num{
+  position: absolute;
+  right: 10rpx;
+  bottom: 0;
+}
+.container .shop_list .num .reduce,.container .shop_list .add{
+  display: inline-block;
+  width: 45rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  background-color: orange;
+}
+.container .shop_list .num_text{
+  margin: 0 10rpx;
+}
+
+/* 购物车 */
+.car{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: #ccc;
+}
+.car_info{
+  width: 70%;
+  height: 100rpx;
+  text-align: center;
+  color: #fff;
+  float: left;
+}
+.car_info .num{
+  height: 80rpx;
+  padding: 10rpx 0;
+}
+.gopay{
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  float: left;
+  text-align: center;
+  background-color: orange;
+}

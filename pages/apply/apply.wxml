@@ -1,0 +1,13 @@
+<!--apply.wxml-->
+<view class="choose_address">
+  <image src="../img/address.png"></image>
+  <text class="address_tip">{{address}}</text>
+</view>
+
+
+<view class="addInfo">
+  <textarea placeholder="添加备注信息" />
+</view>
+
+
+<view class="gopay" bindtap="gopay">去支付</view>

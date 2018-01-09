@@ -1,0 +1,75 @@
+/* pages/classify/index.wxss */
+/*显示*/
+.nav_active{
+  color: deeppink;
+  background: #545652;
+}
+
+
+/*导航*/
+.nav{
+  width: 20%;
+  font-size: 0.8rem;
+  background: #545652;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.nav_item{
+  padding: 1rem 0;
+}
+
+
+
+/*电影列表*/
+.container{
+  width: 80%;
+  margin-left: 21%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.container image{
+  width: 5rem;
+  height: 8rem;
+  display: block;
+}
+.container .movie{
+  width: 5rem;
+  height: 10rem;
+  float: left;
+  text-align: center;
+  margin-left: 1rem;
+}
+.container .movie_name{
+  width: 5rem;
+  height: 1rem;
+  margin-top: 0.5rem;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* loading */
+.mask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  background: rgba(0,0,0,.5)
+}
+.loading{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+  color: #fff;
+}

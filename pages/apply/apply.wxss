@@ -1,0 +1,54 @@
+/* apply.wxss */
+.choose_address{
+  padding: 50rpx 0;
+  text-align: center;
+  background: #fff url(../img/address_btm.png) -7px bottom repeat-x;
+  background-size: 84rpx 5rpx; 
+}
+.choose_address image{
+  width: 35rpx;
+  height: 50rpx;
+  vertical-align: sub;
+  margin-right: 30rpx; 
+}
+.address_tip{
+  position: relative;
+}
+
+.address_tip::after{
+  float: right;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+  content: '';
+	width: 20rpx;
+	height: 20rpx;
+	display: inline-block;
+	border: 1rpx solid #4d4d4d;
+	border-top-width: 0;
+	border-left-width: 0;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+
+.addInfo{
+  width: 90%;
+  margin: 0 auto;
+  border: 1rpx solid #ccc;
+  border-radius: 20rpx;
+  padding: 10rpx;
+  margin-top: 50rpx;
+}
+
+.gopay{
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  padding: 20rpx 30rpx;
+  text-align: center;
+  color: #fff;
+  background-color: orange;
+  margin-top: 100rpx;
+}

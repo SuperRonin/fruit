@@ -1,0 +1,21 @@
+<!--nav-->
+<view class="nav">
+    <view class="nav_item {{activeindex == 0 ? 'nav_active' : ''}}"  bindtap="in_theater" data-index="0">正在热映</view>
+    <view class="nav_item {{activeindex == 1 ? 'nav_active' : ''}}"   bindtap="coming_soon" data-index="1">即将上映</view>
+    <view class="nav_item {{activeindex == 2 ? 'nav_active' : ''}}"   bindtap="TOP250" data-index="2">TOP250</view>
+    <view class="nav_item {{activeindex == 3 ? 'nav_active' : ''}}"   bindtap="us_box" data-index="3">北美票房榜</view>
+    <view class="nav_item {{activeindex == 4 ? 'nav_active' : ''}}"   bindtap="new_movies" data-index="4">新片榜</view>
+</view>
+
+<!--container-->
+<view class="container">
+   <block wx:for="{{movielist}}">
+    <view class="movie">
+      <image src="{{item.images.small}}"></image>
+      <text class="movie_name" data-index="{{index}}">{{item.title}}</text>
+    </view>
+   </block>
+</view>
+
+<view class="mask" wx-if="{{showloading}}"></view>
+<view class="loading" wx-if="{{showloading}}">正在加载中……</view>
