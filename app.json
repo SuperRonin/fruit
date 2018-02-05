@@ -2,15 +2,16 @@
   "pages": [
     "pages/index/index",
     "pages/apply/apply",
-    
+    "pages/logs/logs",
     "pages/pay/pay",
-    "pages/logs/logs"
+    "pages/picker/picker"
     
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "orange",
     "navigationBarBackgroundColor": "orange",
     "navigationBarTitleText": "李师傅蔬果",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "orange",
+    "onPullDownRefresh": true
   }
 }

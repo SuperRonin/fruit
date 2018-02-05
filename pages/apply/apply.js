@@ -5,22 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address:  '请选择收货地址'
+    address:  '请选择收货地址',
+    isChooseAddress: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.getStorage({
-      'key': 'address',
-      success: function(res){
-        that.setData({
-          'address': res.data
-        })
-      }
-    })
+
   },
 
   /**
@@ -34,7 +27,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getStorage()
   },
 
   /**
@@ -72,12 +65,37 @@ Page({
   
   },
 
-
+  getStorage: function(){
+    var that = this;
+    wx.getStorage({
+      'key': 'address',
+      success: function (res) {
+        that.setData({
+          'address': res.data
+        })
+      }
+    })
+  },
   gopay: function(){
     wx.showToast({
       title: '暂未开通支付',
-      icon: 'success',
+      image: '../img/tip.fw.png',
       duration: 2000
     }) 
+  },
+  openmap: function(){
+    var that = this
+    wx.chooseLocation({
+      success: function(res){
+        wx.setStorage({
+          key: 'address',
+          data: res.address
+        })
+        
+      }
+    })
+    that.setData({
+      "isChooseAddress": true
+    })
   }
 })

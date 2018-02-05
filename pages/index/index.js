@@ -3,7 +3,7 @@ var config = require("../../configs/config")
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
+    showNodata: false,
     activeindex: 0,
     carTotalNum: 0,
     carTotalPrice: 0.00,
@@ -20,9 +20,7 @@ Page({
   },
   onLoad: function () {
     console.log('onLoad')
-    wx.showLoading({
-      title: '加载中',
-    })
+    
 
     var that = this;
     that.getLocation()
@@ -45,25 +43,22 @@ Page({
       success: function (res) {
         console.log(res.latitude)
         console.log(res.longitude)
+        // 腾讯地图开发平台(根据经纬度获取地理位置)
         var qqMapApi = config.qqMapApi + "?location=" + res.latitude + ',' + res.longitude + "&key=" + config.qqUserkey + "&get_poi=1";
-        wx.request({
-          url: qqMapApi,
-          method: 'get',
-          data: {},
-          success: function(res){
-            that.address = res.data.result.address;
-            console.log(res.data)
-            that.setData({
-              'address': that.address
-            })
-            wx.setStorage({
-              key: 'address',
-              data: that.address
-            })
-          },
-          error: function(){
-            alert("获取地理位置信息失败")
-          }
+        app.http.req(qqMapApi, 'get', {}, '', function (res) {
+          that.address = res.result.address;
+          console.log(res)
+          that.setData({
+            'address': that.address
+          })
+          wx.setStorage({
+            key: 'address',
+            data: that.address
+          })
+        }, function () {
+          wx.showToast({
+            title: '获取地理位置信息失败',
+          })
         })
       }
     })
@@ -84,23 +79,18 @@ Page({
   //获取所有商品
   getShops: function(index){
     var that = this;
-    wx.request({
-      url: 'http://xuexingwei.top/shops',
-      method: 'get',
-      data: {},
-      success: function(res){
-        console.log(res)
-        that.AllList = res.data.shops
-        that.setData({
-          'AllList': that.AllList,
-          'textData': res.data.shops[0],
-          "tabs": res.data.tabList
-        })
-        wx.hideLoading()
-      },
-      error: function(){
-
-      }
+    app.http.req('http://120.79.20.16/shops', 'get', {}, '加载中', function(res){
+      console.log(res)
+      that.AllList = res.shops
+      that.setData({
+        'AllList': that.AllList,
+        'textData': res.shops[0],
+        "tabs": res.tabList
+      })
+    },function(){
+      wx.showToast({
+        title: 'error',
+      })
     })
   },
   // 增加商品
@@ -137,13 +127,25 @@ Page({
   },
   // 左侧tab点击
   tabClick: function(e){
+    var showNodata;
     var curIndex = e.target.dataset.index; //当前索引
     var activeindex = this.data.activeindex;
     
+    // 无商品
+    if (!this.data.AllList[curIndex] || this.data.AllList[curIndex].length == 0) {
+      showNodata = true
+      this.data.showNodata = true
+    }else{
+      showNodata = false
+      this.data.showNodata = false
+    }
+
     this.setData({
-      "textData": this.data.AllList[curIndex],
-      "activeindex": curIndex
+      "textData": this.data.AllList[curIndex] || [],
+      "activeindex": curIndex,
+      "showNodata": showNodata
     })
+    
   },
   // 价格、数量信息计算
   countCarInfo: function (index,type){

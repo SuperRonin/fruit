@@ -17,8 +17,8 @@
 <view class="clearfix container">
   <!-- 左侧tab -->
   <view class="tabs">
-    <view wx:for="{{tabs}}" wx:key="item">
-    <text class="{{activeindex == index ? 'showTitle' : ''}}" data-index="{{index}}" bindtap="tabClick">{{item.title}}</text>
+    <view class="tab-item" wx:for="{{tabs}}" wx:key="item">
+      <text class="{{activeindex == index ? 'showTitle' : ''}}" data-index="{{index}}" bindtap="tabClick">{{item.title}}</text>
     </view>
   </view>
   <!-- 右侧商品 -->
@@ -28,11 +28,14 @@
         <!-- 商品盒子 -->
         <view class="clearfix shop">
           <!-- 商品图片 -->
-          <image src="../img/qqq.png"></image>
+          <image src="{{item.imgUrl}}"></image>
           <!-- 商品信息 -->
           <view class="info">
-            <text>{{item.text}}</text>
-            <text class="block color_red">¥{{item.price}}</text>
+            <text>{{item.name}}</text>
+            <view class="block">
+              <text class='color_red'>¥{{item.price}}</text>
+              <text class='color_gray'>/{{item.price}}00g</text>
+            </view>
           </view>
           <!-- 商品数量 -->
           <view class="num">
@@ -44,6 +47,7 @@
           </view>
         </view>
     </view>
+    <view class="no_shop {{showNodata ? 'nodata_block':''}}">货架空空如也~</view>
   </view>
   <!-- 购物车 -->
   <view class="car">

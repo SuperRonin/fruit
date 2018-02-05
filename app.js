@@ -1,3 +1,4 @@
+var http = require("utils/http")
 //app.js
 App({
   onLaunch: function() {
@@ -25,5 +26,8 @@ App({
 
   globalData: {
     userInfo: null
+  },
+  http: {
+    req: http.req
   }
 })

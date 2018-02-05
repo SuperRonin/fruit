@@ -2,8 +2,8 @@
 .choose_address{
   padding: 50rpx 0;
   text-align: center;
-  background: #fff url(../img/address_btm.png) -7px bottom repeat-x;
-  background-size: 84rpx 5rpx; 
+  background: #fff url(http://120.79.20.16/static/img/address_btm.png) -7px bottom repeat-x;
+  background-size: 84rpx 12rpx; 
 }
 .choose_address image{
   width: 35rpx;
@@ -33,6 +33,27 @@
 }
 
 
+.tel-phone{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50rpx;
+}
+.tel-phone .tel{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20rpx;
+  margin: 20rpx 0;
+}
+.tel-phone input{
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  padding: 10rpx;
+}
+
+
 .addInfo{
   width: 90%;
   margin: 0 auto;
@@ -40,6 +61,9 @@
   border-radius: 20rpx;
   padding: 10rpx;
   margin-top: 50rpx;
+}
+.beizhu{
+  height: 180rpx;
 }
 
 .gopay{

@@ -1,12 +1,23 @@
 <!--apply.wxml-->
-<view class="choose_address">
+<view class="choose_address" bindtap='openmap'>
   <image src="../img/address.png"></image>
   <text class="address_tip">{{address}}</text>
 </view>
 
 
+<view class="tel-phone">
+    <view class="tel">
+      <text>姓　名</text>
+      <input type="text" name="name" placeholder="请输入姓名"/>
+    </view>
+    <view class="tel">
+      <text>手机号</text>
+      <input type="number" name="number" placeholder="请输入手机号"/>
+    </view>
+</view>  
+
 <view class="addInfo">
-  <textarea placeholder="添加备注信息" />
+  <textarea class="beizhu" placeholder="添加备注信息" />
 </view>
 
 
