@@ -1,0 +1,32 @@
+
+<!-- 搜索框 -->
+<view class="search-box">
+  <input class="search-input" type="text" placeholder="搜索商品"></input>
+</view>
+
+<!-- 热词搜索 -->
+<view class="hot-word">
+  <text class="hot-tit">热门搜索</text>
+  <view class="hot-list">
+    <text wx:for="{{ hotWords }}" class="{{wordFlag == index ? 'border-color' : ''}}" data-index="{{ index }}" wx:key="item" bindtap='hotWordClick'>{{ item }}</text>
+  </view>
+</view>
+
+<!-- 搜索结果 -->
+<view class="search-result">
+  <view class="search-result-shop" wx:for="{{searchResult}}" wx:key="item" >
+    <!-- 商品图片   -->
+    <image class="shop-img" src="{{ item.imgUrl }}"></image>
+    <!-- 商品信息 -->
+    <view class="shop-info">
+      <view class="shop-name">{{item.name}}</view>
+      <view class="shop-price">
+        <text>¥{{item.price}}</text><text>/1000g</text>
+      </view>
+    </view>
+    <!-- 加入购物车 -->
+    <view>
+      <text class="addNum">+</text>
+    </view>
+  </view>
+</view>

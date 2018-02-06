@@ -161,5 +161,11 @@ Page({
       "carTotalNum": this.data.carTotalNum,
       "carTotalPrice": this.data.carTotalPrice
     })
+  },
+  searchShop: function(){
+    console.log(1)
+    wx.navigateTo({
+      url: '../search/search',
+    })
   }
 })

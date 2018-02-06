@@ -8,8 +8,8 @@
   </view>
 
   <!-- 搜索框 -->
-  <view class="search">
-    <input type="search" placeholder-style="" placeholder="请输入需要搜索的商品"/>
+  <view class="search" bindtap="searchShop">
+    <text>请输入需要搜索的商品</text>
   </view>
 </view>
 <view class="hideBox"></view>
